@@ -99,7 +99,7 @@ const resolvers = {
     book: (parent, args) => books.find(book => book.id === args.id)
   },
   Mutation: {
-    post: (parent, args) => {
+    addBook: (parent, args) => {
       const book = {
         id: idCount++,
         title: args.title,
