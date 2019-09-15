@@ -1,0 +1,18 @@
+type Book {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  title: String!
+  image: String!
+  author: String!
+  price: String!
+  ownedBy: User
+}
+
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  password: String!
+  books: [Book!]!
+}
+ 

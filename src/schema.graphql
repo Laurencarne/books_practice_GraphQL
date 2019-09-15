@@ -10,6 +10,10 @@ type Mutation {
     author: String!
     price: String!
   ): Book!
+
+  signup(email: String!, password: String!, name: String!): AuthPayload
+  login(email: String!, password: String!): AuthPayload
+
   updateBook(
     id: ID!
     title: String
@@ -17,6 +21,7 @@ type Mutation {
     author: String
     price: String
   ): Book
+
   deleteBook(id: ID!): Book
 }
 
@@ -26,4 +31,17 @@ type Book {
   image: String!
   author: String!
   price: String!
+  ownedBy: User
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  books: [Book!]!
 }
